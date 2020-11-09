@@ -7,6 +7,11 @@ defmodule ContaiDesafioWeb.Router do
 
   scope "/api", ContaiDesafioWeb do
     pipe_through :api
+    resources "/calculos",          CalculoController, except: [:new, :edit]
+    post "/calculos/soma",          CalculoController, :soma
+    post "/calculos/subtracao",     CalculoController, :subtracao
+    post "/calculos/multiplicacao", CalculoController, :multiplicacao
+    post "/calculos/divisao",       CalculoController, :divisao
   end
 
   # Enables LiveDashboard only for development
